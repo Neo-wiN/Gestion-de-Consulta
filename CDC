@@ -1,0 +1,48 @@
+
+Private Sub CommandButton3_Click()
+Dim dtDt As DataObject
+    Set dtDt = New DataObject
+    dtDt.SetText Me.codigo.Text
+    dtDt.PutInClipboard
+End Sub
+
+Private Sub CommandButton4_Click()
+Dim valor As String
+On Error Resume Next
+If IsError(valor) Then
+Ubicacion.Text = ""
+Else
+tiendatemp = Application.WorksheetFunction.VLookup(Ubicacion.Text, Sheets("base").Range("A:Z"), 2, 0)
+Tienda.Value = tiendatemp
+direcciontemp = Application.WorksheetFunction.VLookup(Ubicacion.Text, Sheets("base").Range("A:Z"), 3, 0)
+Direccion.Value = direcciontemp
+gerentetemp = Application.WorksheetFunction.VLookup(Ubicacion.Text, Sheets("base").Range("A:Z"), 4, 0)
+Gerente.Value = gerentetemp
+celulartemp = Application.WorksheetFunction.VLookup(Ubicacion.Text, Sheets("base").Range("A:Z"), 5, 0)
+Celular.Value = celulartemp
+codigotemp = Application.WorksheetFunction.VLookup(Ubicacion.Text, Sheets("base").Range("A:Z"), 6, 0)
+codigo.Value = codigotemp
+
+End If
+
+End Sub
+
+Private Sub Image5_Click()
+
+End Sub
+
+Private Sub Label15_Click()
+
+End Sub
+
+Private Sub Label2_Click()
+
+End Sub
+
+Private Sub Label5_Click()
+
+End Sub
+
+Private Sub Ubicacion_Change()
+Ubicacion.Text = UCase(Ubicacion.Text)
+End Sub
